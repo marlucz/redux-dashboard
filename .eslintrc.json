@@ -1,30 +1,39 @@
 {
   "$schema": "https://json.schemastore.org/eslintrc.json",
   "root": true,
-  "env": { "browser": true, "es2020": true },
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true
+  },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": "tsconfig.json"
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
   },
-  "plugins": ["react-refresh", "simple-import-sort"],
+  "plugins": [
+    "react",
+    "react-refresh",
+    "simple-import-sort",
+    "prettier",
+    "@typescript-eslint"
+  ],
   "rules": {
     // sort imports
     "import/order": "error",
-
     // no let exports
     "import/no-mutable-exports": "error",
-
     "import/no-cycle": "error",
     "import/no-default-export": "error",
-
     // allow {} even though it's unsafe but comes handy
     "@typescript-eslint/ban-types": [
       "error",
@@ -34,7 +43,6 @@
         }
       }
     ],
-
     "@typescript-eslint/consistent-type-imports": [
       "error",
       {
@@ -43,35 +51,38 @@
         "disallowTypeAnnotations": false
       }
     ],
-
-    "import/no-duplicates": ["error", { "prefer-inline": true }],
-
+    "import/no-duplicates": [
+      "error",
+      {
+        "prefer-inline": true
+      }
+    ],
     // false negatives
     "import/namespace": ["off"],
-
     // we allow empty interfaces
     "no-empty-pattern": "off",
     "@typescript-eslint/no-empty-interface": "off",
-
     // we allow empty functions
     "@typescript-eslint/no-empty-function": "off",
-
-    // we sometimes use async functions that don't await anything
+    // we sometimes use async functions that don"t await anything
     "@typescript-eslint/require-await": "off",
-
     // make sure to `await` inside try…catch
     "@typescript-eslint/return-await": ["error", "in-try-catch"],
-
     // allow unused vars prefixed with `_`
     "@typescript-eslint/no-unused-vars": [
       "error",
-      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
     ],
-
     // numbers and booleans are fine in template strings
     "@typescript-eslint/restrict-template-expressions": [
       "error",
-      { "allowNumber": true, "allowBoolean": true }
+      {
+        "allowNumber": true,
+        "allowBoolean": true
+      }
     ]
   },
   "ignorePatterns": ["dist", ".eslintrc.json", "*.js", "*.jsx"]

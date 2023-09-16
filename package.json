@@ -14,15 +14,18 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.0.0",
     "concurrently": "^8.2.1",
     "husky": "^8.0.3",
     "json-server": "^0.17.3",
     "lint-staged": "^14.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "vite-tsconfig-paths": "^4.2.1"
+    "tailwind-merge": "^1.14.0"
   },
   "devDependencies": {
+    "@types/node": "^20.6.2",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",

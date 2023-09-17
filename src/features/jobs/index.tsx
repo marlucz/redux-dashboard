@@ -2,7 +2,8 @@ import { Button } from "../../components/button";
 import { useGetJobsDataQuery } from "./jobsApi";
 
 const JobsBoard = () => {
-  const { data, isLoading } = useGetJobsDataQuery();
+  const { data, isLoading, isError } = useGetJobsDataQuery();
+
   console.log(data);
   return (
     <section>
@@ -16,7 +17,12 @@ const JobsBoard = () => {
         <Button className="rounded-l-none">Upcoming</Button>
       </div>
 
-      <div>{isLoading ? "Loading..." : "Data fetched!"}</div>
+      {isLoading ? "Loading..." : "Data fetched!"}
+      {isError && (
+        <div className="text-error">
+          <p>Oh no, there was an error!</p>
+        </div>
+      )}
     </section>
   );
 };

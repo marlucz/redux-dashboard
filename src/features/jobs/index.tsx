@@ -4,6 +4,7 @@ import { cn } from "../../utils";
 import { Table } from "../components/Table";
 import { TableSkeleton } from "../components/TableSkeleton";
 import { TableNavButton } from "../components/TableNavButton";
+import { ErrorMessage } from "../../components/error";
 import { useGetJobsDataQuery } from "./jobsApi";
 
 const JobsBoard = () => {
@@ -76,11 +77,7 @@ const JobsBoard = () => {
           ))
         )}
       </Table>
-      {isError && (
-        <div className="text-error">
-          <p>Oh no, there was an error!</p>
-        </div>
-      )}
+      {isError && <ErrorMessage />}
     </section>
   );
 };

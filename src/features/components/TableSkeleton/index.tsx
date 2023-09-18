@@ -3,7 +3,7 @@ import { Skeleton } from "../../../components/skeleton";
 const SkeletonRow = ({ withFirstItem = true }: { withFirstItem?: boolean }) => {
   return (
     <tr>
-      <td colSpan={2}>{withFirstItem && <Skeleton height="30px" />}</td>
+      <td>{withFirstItem && <Skeleton height="30px" />}</td>
       <td>
         <Skeleton height="30px" />
       </td>

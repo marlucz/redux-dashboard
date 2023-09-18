@@ -6,14 +6,17 @@ const middlewares = jsonServer.defaults();
 server.use(jsonServer.bodyParser);
 
 server.use(function (req, res, next) {
-  // randomly throw error
-  if (Math.random() < 0.2) {
-    res.status(500).send("Random Server Error");
-    return;
-  }
-
   // delay response for loading state testing
-  setTimeout(next, 3000);
+  setTimeout(() => {
+    // randomly throw error
+    if (Math.random() < 0.2) {
+      res.status(500).send("Random Server Error");
+      return;
+    }
+
+    next()
+
+  }, 3000);
 });
 
 server.use(middlewares);

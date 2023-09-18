@@ -10,7 +10,7 @@ import {
 const HOURS_TO_MILLISECONDS = 60 * 60 * 1000;
 
 function formatDate(date: Date): string {
-  const month = date.toLocaleString("en-US", { month: "short" }).toUpperCase();
+  const month = date.toLocaleString("en-US", { month: "short" });
   const dayName = date
     .toLocaleString("en-US", { weekday: "short" })
     .toUpperCase();
@@ -24,12 +24,13 @@ function calculateTimeRange(startDate: Date, duration: number): string {
     startDate.getTime() + duration * HOURS_TO_MILLISECONDS,
   );
 
-  const startTime = startDate.toLocaleTimeString("en-US", {
+  // en-US adds PM/AM to the time, so en-GB is used instead
+  const startTime = startDate.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
   });
 
-  const endTime = endDate.toLocaleTimeString("en-US", {
+  const endTime = endDate.toLocaleTimeString("en-GB", {
     hour: "2-digit",
     minute: "2-digit",
   });

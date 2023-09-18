@@ -1,4 +1,6 @@
 import { Button } from "../../components/button";
+import { Table } from "../components/Table";
+import { TableSkeleton } from "../components/TableSkeleton";
 import { useGetJobsDataQuery } from "./jobsApi";
 
 const JobsBoard = () => {
@@ -17,7 +19,9 @@ const JobsBoard = () => {
         <Button className="rounded-l-none">Upcoming</Button>
       </div>
 
-      {isLoading ? "Loading..." : "Data fetched!"}
+      <Table>
+        {isLoading ? <TableSkeleton /> : <tbody>Data Fetched</tbody>}
+      </Table>
       {isError && (
         <div className="text-error">
           <p>Oh no, there was an error!</p>

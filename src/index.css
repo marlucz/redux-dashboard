@@ -20,3 +20,42 @@ body,
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.background-animate {
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-name: placeholder-shimmer;
+  animation-timing-function: linear;
+  background: #f6f7f8;
+  background: linear-gradient(to right, #dddddc 8%, #cbcbcb 18%, #dddcdc 33%);
+  background-size: 1200px 104px;
+  position: relative;
+}
+
+@keyframes placeholder-shimmer {
+  0% {
+    background-position: -450px 0;
+  }
+
+  100% {
+    background-position: 450px 0;
+  }
+}
+
+td,
+th {
+  padding: 15px;
+  white-space: nowrap;
+}
+
+td:first-child,
+th:first-child {
+  padding-left: 0;
+}
+
+td:last-child,
+th:last-child {
+  padding-right: 50px;
+  text-align: right;
+}

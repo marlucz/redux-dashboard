@@ -18,6 +18,12 @@ pnpm install
 pnpm dev
 ```
 
+## test
+
+```bash
+pnpm test
+```
+
 ## License
 
 MIT License, see [LICENSE](LICENSE).

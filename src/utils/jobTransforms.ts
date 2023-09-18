@@ -9,7 +9,7 @@ import {
 
 const HOURS_TO_MILLISECONDS = 60 * 60 * 1000;
 
-function formatDate(date: Date): string {
+export function formatDate(date: Date): string {
   const month = date.toLocaleString("en-US", { month: "short" });
   const dayName = date
     .toLocaleString("en-US", { weekday: "short" })
@@ -19,7 +19,7 @@ function formatDate(date: Date): string {
   return `${dayName}, ${month} ${dayInMonth}`;
 }
 
-function calculateTimeRange(startDate: Date, duration: number): string {
+export function calculateTimeRange(startDate: Date, duration: number): string {
   const endDate = new Date(
     startDate.getTime() + duration * HOURS_TO_MILLISECONDS,
   );
@@ -38,13 +38,15 @@ function calculateTimeRange(startDate: Date, duration: number): string {
   return `${startTime} - ${endTime}`;
 }
 
-function sortJobsByDate(jobs: TransformedJobData[]): TransformedJobData[] {
+export function sortJobsByDate(
+  jobs: TransformedJobData[],
+): TransformedJobData[] {
   return jobs.sort(({ timestamp: timestampA }, { timestamp: timestampB }) => {
     return timestampA - timestampB;
   });
 }
 
-function sortLocationsByName(
+export function sortLocationsByName(
   locations: TransformedJobByLocationData[],
 ): TransformedJobByLocationData[] {
   return locations.sort(({ location: locationA }, { location: locationB }) => {
@@ -52,7 +54,7 @@ function sortLocationsByName(
   });
 }
 
-function transformJobData(job: JobData): TransformedJobData {
+export function transformJobData(job: JobData): TransformedJobData {
   const date = new Date(job.executionDate);
 
   return {

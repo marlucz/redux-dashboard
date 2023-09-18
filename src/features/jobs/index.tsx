@@ -62,7 +62,9 @@ const JobsBoard = () => {
               {jobData.jobs.map(
                 ({ uuid, agent, date, repetition, time, type }, index) => (
                   <tr key={uuid}>
-                    <td>{index === 0 ? jobData.location : undefined}</td>
+                    <td data-testid="location">
+                      {index === 0 ? jobData.location : undefined}
+                    </td>
                     <td>{type}</td>
                     <td>
                       <p>{date}</p>

@@ -26,7 +26,7 @@ export const TableSkeleton = () => {
       {Array(3)
         .fill(true)
         .map((_, index) => (
-          <tbody key={index} className="border-t">
+          <tbody key={index} className="border-t" data-testid="skeleton">
             <SkeletonRow />
             <SkeletonRow withFirstItem={false} />
           </tbody>
